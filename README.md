@@ -1,1 +1,3 @@
-### react-query 연습을 위한 레포입니다.
+# udemy-REACT-QUERY
+
+Code to support the Udemy course [React Query: Server State Management in React](https://www.udemy.com/course/learn-react-query/?couponCode=REACT-QUERY-GITHUB)
