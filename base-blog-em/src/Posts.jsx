@@ -29,7 +29,7 @@ export function Posts() {
 
   // const data = [];
 
-  // 설명 : 위 const data = []; 코드를 useQuery로 data를 구조 분해한다.
+  // 설명 : 위 const data = []; 코드를 아래처럼 useQuery로 data를 구조 분해한다.
   // 설명 : useQuery의 첫 번째 인자는 쿼리 키 이다.
   //       두 번째 인자는 쿼리에 대한 데이터를 가져오는 방법 즉, 함수를 의미한다. (비동기 함수여야 함)
   //       세 번째 인자는 옵션이며 staleTime이다. 1/1000초 단위이다.
@@ -39,12 +39,12 @@ export function Posts() {
     () => fetchPosts(currentPage),
     {
       staleTime: 2000,
-      keepPreviousData: true,
-      // 설명 : query키가 바뀔 때도 지난 데이터를 유지해서 혹여나 이전 페이지로 돌아갔을 때 케시에 해당 데이터가 있도록 하는 기능
+      keepPreviousData: true, // 설명 : query키가 바뀔 때도 지난 데이터를 유지해서 혹여나 이전 페이지로 돌아갔을 때 케시에 해당 데이터가 있도록 하는 기능
     }
   );
 
-  if (isLoading) return <h3>Loading...</h3>;
+  if (isLoading) return <h3>Loading...</h3>; // 설명 : 데이터를 가져오는 중 fetchPosts함수가 실행 중이면서 캐시된 데이터가 존재하지 않을 때 isLoading이 참이 된다.
+  // if (isFetching) return <h3>Loading...</h3>; // 설명 : 이 경우에는 캐시된 데이터의 존재 여부와 관계없이 로딩을 나타낼 것이다. 프리페치 전에 행동할 것이다. (즉, 다음장의 데이터를 포함한 캐시를 미리 가져오기 전)
   if (isError)
     return (
       <>
